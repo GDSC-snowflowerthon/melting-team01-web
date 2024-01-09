@@ -1,0 +1,119 @@
+/*melting font-family*/
+@import url("https://fonts.googleapis.com/css2?family=Baskervville:ital@1&family=Hina+Mincho&display=swap");
+
+body {
+  background: linear-gradient(#120275, #2200f0d6, #8c00fbbf);
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0px;
+  font-family: "Baskervville", serif; /*only "melting"*/
+  color: rgb(238, 244, 255);
+}
+
+@media (min-width: 650px) {
+  .App {
+    width: 640px;
+  }
+}
+
+@media (max-width: 650px) {
+  .App {
+    width: 90vw;
+  }
+}
+
+.App {
+  min-height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Start */
+.Start {
+  min-height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Start img {
+  width: 244px;
+  height: 305px;
+}
+
+@media (min-width: 650px) {
+  .Start {
+    width: 640px;
+  }
+}
+
+@media (max-width: 650px) {
+  .Start {
+    width: 90vw;
+  }
+}
+
+.Start ul {
+  list-style: none;
+  margin-top: 20px;
+  padding: 10px;
+  width: 320px;
+  height: 30px;
+  background-color: #7ca1ff;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.Start a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 20px;
+}
+
+/* Outside */
+
+.Outside {
+  min-height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 650px) {
+  .Outside {
+    width: 640px;
+  }
+}
+
+@media (max-width: 650px) {
+  .Outside {
+    width: 90vw;
+  }
+}
+
+/* Diary */
+
+.Diary {
+  min-height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+@media (min-width: 650px) {
+  .Diary {
+    width: 640px;
+  }
+}
+
+@media (max-width: 650px) {
+  .Diary {
+    width: 90vw;
+  }
+}
