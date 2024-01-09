@@ -24,7 +24,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        {this.snow()}
         <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/outside" element={<Outside />} />
