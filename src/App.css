@@ -13,67 +13,11 @@ body {
   color: rgb(238, 244, 255);
 }
 
-.snow {
-  width: 10px;
-  height: 10px;
-  background-color: #fff;
-  border-radius: 50%;
-  animation: snow 10s linear infinite;
-}
-@keyframes snow {
-  0% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-  20% {
-    opacity: 1;
-    transform: translate(-15px, 20vh);
-  }
-  40% {
-    opacity: 1;
-    transform: translate(15px, 40vh);
-  }
-  60% {
-    opacity: 1;
-    transform: translate(-15px, 60vh);
-  }
-  80% {
-    opacity: 1;
-    transform: translate(0, 80vh);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(100vh);
-  }
-}
-
-@media (min-width: 650px) {
-  .App {
-    width: 640px;
-  }
-}
-
-@media (max-width: 650px) {
-  .App {
-    width: 90vw;
-  }
-}
-
 .App {
   min-height: 100vh;
   padding-left: 20px;
   padding-right: 20px;
 }
-
-/*
-.snow {
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  border-radius: 50%;
-
-}
-*/
 
 /* Start */
 .Start {
