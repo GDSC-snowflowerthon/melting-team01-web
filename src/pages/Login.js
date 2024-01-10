@@ -27,7 +27,7 @@ const Login = () => {
   };
   return (
     <Wrapper>
-      <Title>Log in</Title>
+      <Title>Login</Title>
       <Form>
         <Inputs>
           <Input placeholder="아이디" value={memberId} onChange={onChangeId} />
