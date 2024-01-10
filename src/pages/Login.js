@@ -23,7 +23,7 @@ const Login = () => {
     //accessToken, refreshToken은 백엔드에서 정하기 나름
     localStorage.setItem("access", accessToken);
     localStorage.setItem("refresh", refreshToken);
-    router("/mypage");
+    router("/snowflakes");
   };
   return (
     <Wrapper>
