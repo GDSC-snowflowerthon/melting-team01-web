@@ -4,6 +4,8 @@ import "./App.css";
 import Outside from "./pages/Outside";
 import Diary from "./pages/Diary";
 import Start from "./pages/Start";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Mypage from "./pages/Mypage";
 
 /* Months */
@@ -27,22 +29,24 @@ function App() {
         <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/outside" element={<Outside />} />
-          <Route path="/mypage" element={<Mypage />} />
           <Route path="/diary" element={<Diary />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/snowflakes" element={<Mypage />} />
 
           {/* Months */}
-          <Route path="/january" element={<January />} />
-          <Route path="/february" element={<February />} />
-          <Route path="/march" element={<March />} />
-          <Route path="/april" element={<April />} />
-          <Route path="/may" element={<May />} />
-          <Route path="/june" element={<June />} />
-          <Route path="/july" element={<July />} />
-          <Route path="/august" element={<August />} />
-          <Route path="/september" element={<September />} />
-          <Route path="/october" element={<October />} />
-          <Route path="/november" element={<November />} />
-          <Route path="/december" element={<December />} />
+          <Route path="/diary/january" element={<January />} />
+          <Route path="/diary/february" element={<February />} />
+          <Route path="/diary/march" element={<March />} />
+          <Route path="/diary/april" element={<April />} />
+          <Route path="/diary/may" element={<May />} />
+          <Route path="/diary/june" element={<June />} />
+          <Route path="/diary/july" element={<July />} />
+          <Route path="/diary/august" element={<August />} />
+          <Route path="/diary/september" element={<September />} />
+          <Route path="/diary/october" element={<October />} />
+          <Route path="/diary/november" element={<November />} />
+          <Route path="/diary/december" element={<December />} />
         </Routes>
       </div>
     </BrowserRouter>
