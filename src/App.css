@@ -10,7 +10,9 @@ body {
   min-height: 100vh;
   margin: 0px;
   font-family: "Baskervville", serif; /*only "melting"*/
+  text-shadow: 0px 0px 10px white;
   color: rgb(238, 244, 255);
+  overflow: hidden;
 }
 
 .App {
@@ -31,8 +33,7 @@ body {
 }
 
 .Start img {
-  width: 244px;
-  height: 305px;
+  width: 60%;
 }
 
 @media (min-width: 650px) {
@@ -48,14 +49,24 @@ body {
 }
 
 .Start ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.Start li {
   list-style: none;
   margin-top: 20px;
   padding: 10px;
-  width: 320px;
-  height: 30px;
-  background-color: #7ca1ff;
   border-radius: 15px;
   text-align: center;
+  width: 320px;
+  height: 30px;
+  background-color: #9bb7ff;
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 7px 20px;
+}
+
+.Start #mypageBtn {
+  background-color: #eeacff;
 }
 
 .Start a {
