@@ -4,6 +4,8 @@ import "./App.css";
 import Outside from "./pages/Outside";
 import Diary from "./pages/Diary";
 import Start from "./pages/Start";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Mypage from "./pages/Mypage";
 
 /* Months */
@@ -27,8 +29,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/outside" element={<Outside />} />
-          <Route path="/mypage" element={<Mypage />} />
           <Route path="/diary" element={<Diary />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/mypage" element={<Mypage />} />
 
           {/* Months */}
           <Route path="/january" element={<January />} />
