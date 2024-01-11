@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import React from "react";
+import { FallingSnow, Snowflake } from "./components/Snowflake";
 
 import Outside from "./pages/Outside";
 import Diary from "./pages/Diary";
@@ -26,6 +28,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <FallingSnow />
         <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/outside" element={<Outside />} />

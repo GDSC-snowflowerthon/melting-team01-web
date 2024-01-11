@@ -17,8 +17,8 @@ const Signup = () => {
     /*const [name, onChangeName] = useForm();*/
   }
   return (
-    <Wrapper>
-      <Title>Sign up</Title>
+    <div className="Signup">
+      <h1>Sign up</h1>
       <Inputs>
         <Input placeholder="아이디" value={memberId} onChange={onChangeId} />
         <Input
@@ -30,13 +30,14 @@ const Signup = () => {
         {/*<Input placeholder="이름" value={name} onChange={onChangeName} /> */}
       </Inputs>
       <Button onClick={onClick}>Sign Up</Button>
-    </Wrapper>
+    </div>
   );
 };
 
 export default Signup;
 const Button = styled.button`
-  background-color: black;
+  background-color: #eeacff;
+  border: none;
   color: white;
   padding-left: 20px;
   padding-right: 20px;
@@ -44,4 +45,6 @@ const Button = styled.button`
   padding-bottom: 10px;
   border-radius: 10px;
   margin-top: 20px;
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 7px 20px;
+  cursor: pointer;
 `;
