@@ -1,11 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getMyPage } from "../apis/mypage";
 
 const Mypage = () => {
+  const [data, setData] = useState();
   useEffect(() => {
-    getMyPage().then((res) => console.log(res));
+    getMyPage().then((res) => {
+      setData(res);
+    });
   }, []);
-  return <div>Mypage</div>;
+
+  return (
+    <div>
+      <h1>My page</h1>
+      <div>{data?.snowflakeId}</div>
+      <div>{data?.content}</div>
+    </div>
+  );
 };
 
 export default Mypage;
