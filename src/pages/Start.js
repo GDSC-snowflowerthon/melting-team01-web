@@ -4,7 +4,7 @@ const Start = () => {
   return (
     <div className="Start">
       <h1>Melting</h1>
-      <img src={process.env.PUBLIC_URL + `/assets/snowman1.png`} />{" "}
+      <img src={process.env.PUBLIC_URL + `/assets/snowman4.png`} />{" "}
       <ul>
         <li>
           <Link to="/outside">내 눈사람 보러가기</Link>

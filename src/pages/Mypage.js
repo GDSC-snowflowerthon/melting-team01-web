@@ -23,7 +23,7 @@ const Mypage = () => {
   return (
     <div>
       {/*<div>{data?.name}</div>*/}
-      <h1>My page</h1>
+      My page
     </div>
     // 백엔드에서 지정한 mypage api의 json 항목 이름을 따른다
   );
