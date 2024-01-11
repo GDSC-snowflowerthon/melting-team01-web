@@ -105,7 +105,7 @@ function Plan() {
       <input type="text" name="plan" onChange={onChange}></input>
       <button onClick={onClick}>저장/수정</button>
 
-      {selectedItemId && <p>선택된 체크박스의 아이디 값:{selectedItemId}</p>}
+      {selectedItemId && <p>선택된 체크 박스의 아이디 값:{selectedItemId}</p>}
     </div>
   );
 }
