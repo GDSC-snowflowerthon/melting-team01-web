@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import axios from "axios";
 
 //'체크박스' 컴포넌트
 function CheckboxSelection({ onCheckboxChange, onSubmit }) {
@@ -81,10 +82,62 @@ function Plan() {
     setText(e.target.value);
   };
 
-  const onClick = () => {
+  const onClick = async () => {
     setPlan(text);
+
+    //plan + 토큰 서버로 보내기 (저장) -- response body는 아직.. 수정은 더 해야함.
+    const sendPlan = async (plan) => {
+      const headers = {
+        Authorization: "여기에 실제 토큰 담기",
+      };
+
+      let result;
+      try {
+        result = await axios.post(
+          "http://43.201.121.70:8080/diary/January",
+          {
+            content: plan,
+          },
+          {
+            headers: headers,
+          }
+        );
+
+        //서버 응답 처리
+        console.log("Server response:", result.data.statusCode);
+      } catch (error) {
+        //에러 처리
+        console.error(
+          "Error:",
+          error,
+          result ? result.data.statusCode : undefined
+        );
+      }
+    };
+
     console.log(plan);
   };
+
+  /*
+  //plan + 토큰 서버로 보내기 (저장) -- response body는 아직.. 수정은 더 해야함.
+  const sendPlan = async (plan) => {
+    const headers = {
+      Authorization: "여기에 실제 토큰 담기",
+    };
+    try {
+      const result = await axios.post(
+        "http://43.201.121.70:8080/diary/January",
+        {
+          content: plan,
+        },
+        {
+          headers: headers,
+        }
+      );
+      .then((response) => {console.log(response.data);})   //음... response body에 있는 부분은 그냥 콘솔에 찍어주기만 하면 되는 건가..
+    } .catch((response)=> {console.log('Error!');})
+  };
+  */
 
   const handleCheckboxChange = (e, id) => {
     console.log(`Checkbox ${id} changed: ${e.target.checked}`);
@@ -92,6 +145,43 @@ function Plan() {
 
   const handleSubmit = (id) => {
     setSelectedItemId(id);
+
+    //체크박스 아이디값 + 토큰 서버로 보내기 -- response body 부분은 아직...
+    const sendCheckboxId = async (selectedItemId) => {
+      const headers = {
+        Authorization: "여기에 실제 토큰 담기",
+      };
+
+      let result;
+
+      try {
+        result = await axios.post(
+          "http://43.201.121.70:8080/diary/January",
+          {
+            grade: selectedItemId,
+          },
+          {
+            headers: headers,
+          }
+        );
+        console.log("Server response:", result.data.statusCode);
+      } catch (error) {
+        console.log(
+          "Error:",
+          error,
+          result ? result.data.statusCode : undefined
+        );
+      }
+    };
+
+    /*const checkboxId = async (selectedItemId) => {
+      const result = await axios
+        .post("http://43.201.121.70:8080//diary/January", selectedItemId,)
+        .then((response) => {
+          console.log(response.statusCode, response.data.token); //이렇게 하는 게 맞나..  response.data.token 이 부분이 이름이 좀 바뀌어야 할 것 같은데..
+        });
+      return result.data.content; //이렇게 하는 게 맞나..
+    };*/
   };
 
   return (
@@ -103,9 +193,10 @@ function Plan() {
       />
       <br />
       <input type="text" name="plan" onChange={onChange}></input>
-      <button onClick={onClick}>저장/수정</button>
+      <button onClick={onClick}>Save</button>
 
-      {selectedItemId && <p>선택된 체크 박스의 아이디 값:{selectedItemId}</p>}
+      {/*이 부분은 나중에 삭제할 것*/}
+      {selectedItemId && <p>선택된 체크박스의 아이디 값:{selectedItemId}</p>}
     </div>
   );
 }
