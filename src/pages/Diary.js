@@ -4,6 +4,7 @@ const Diary = () => {
   return (
     <div className="Diary">
       <h1>Diary</h1>
+      {/*diary*/}
       <Link to="/diary/january">January</Link>
       <Link to="/diary/february">February</Link>
       <Link to="/diary/march">March</Link>
@@ -16,6 +17,7 @@ const Diary = () => {
       <Link to="/diary/october">October</Link>
       <Link to="/diary/november">November</Link>
       <Link to="/diary/december">December</Link>
+
       <Link to="/outside">Go outside </Link>
     </div>
   );

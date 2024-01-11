@@ -5,61 +5,73 @@ import { Link, useNavigate } from "react-router-dom";
 import { login } from "../apis/login";
 
 const Login = () => {
-  const [memberId, setId] = useState("");
-  const [password, setPw] = useState("");
+  const [memberId, setMemberId] = useState("");
+  const [password, setPassword] = useState("");
   const router = useNavigate();
   const onChangeId = (e) => {
-    setId(e.target.value);
+    setMemberId(e.target.value);
   };
   const onChangePw = (e) => {
-    setPw(e.target.value);
+    setPassword(e.target.value);
   };
 
   const onClick = async () => {
-    // 로그인 api
-    const result = await login(memberId, password);
-    // console.log(result); 정상적이라면 accessToken과 refreshToken이 출력되야함
-    const { accessToken, refreshToken } = result;
-    //accessToken, refreshToken은 백엔드에서 정하기 나름
-    localStorage.setItem("access", accessToken);
-    localStorage.setItem("refresh", refreshToken);
-    router("/snowflakes");
+    try {
+      // 로그인 api
+      const result = await login(memberId, password);
+      const { accessToken, refreshToken } = result;
+
+      // 로그인 성공 시 토큰을 localStorage에 저장
+      localStorage.setItem("access", accessToken);
+      localStorage.setItem("refresh", refreshToken);
+
+      console.log(result);
+
+      // 로그인 성공 시 페이지 이동
+      router("/snowflakes");
+    } catch (error) {
+      // 에러 발생 시 로그에 출력
+      console.error("로그인 중 에러:", error);
+    }
   };
   return (
-    <Wrapper>
-      <Title>Login</Title>
-      <Form>
-        <Inputs>
-          <Input placeholder="아이디" value={memberId} onChange={onChangeId} />
-          <Input
-            placeholder="비밀번호"
-            type="password"
-            value={password}
-            onChange={onChangePw}
-          />
-        </Inputs>
-        <Button onClick={onClick}>Login</Button>
-      </Form>
+    <div className="Login">
+      <h1>Login</h1>
+      <Inputs>
+        <Input placeholder="아이디" value={memberId} onChange={onChangeId} />
+        <Input
+          placeholder="비밀번호"
+          type="password"
+          value={password}
+          onChange={onChangePw}
+        />
+      </Inputs>
+      <Button onClick={onClick}>Login</Button>
       <CustomLink to="/signup">회원가입하기</CustomLink>
-    </Wrapper>
+    </div>
   );
 };
 
 export default Login;
 
 const Button = styled.button`
-  background-color: black;
+  background-color: #9bb7ff;
   color: white;
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-radius: 10px;
+  border: none;
+  margin-top: 20px;
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 7px 20px;
+  cursor: pointer;
 `;
 
 const CustomLink = styled(Link)`
   margin-top: 20px;
-  color: black;
-  text-decoration: none;
+  color: rgb(243, 233, 255);
   &:visited {
-    color: black;
-    text-decoration: none;
+    color: rgb(243, 233, 255);
   }
 `;
