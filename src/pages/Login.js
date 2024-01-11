@@ -23,11 +23,11 @@ const Login = () => {
     //accessToken, refreshToken은 백엔드에서 정하기 나름
     localStorage.setItem("access", accessToken);
     localStorage.setItem("refresh", refreshToken);
-    router("/mypage");
+    router("/snowflakes");
   };
   return (
     <Wrapper>
-      <Title>Log in</Title>
+      <Title>Login</Title>
       <Form>
         <Inputs>
           <Input placeholder="아이디" value={memberId} onChange={onChangeId} />
