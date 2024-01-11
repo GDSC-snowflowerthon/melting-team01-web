@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 const Start = () => {
   return (
     <div className="Start">
-      <h1>Melting</h1>
-      <img src={process.env.PUBLIC_URL + `/assets/snowman4.png`} />{" "}
+      <h1>❄️Melting❄️</h1>
+      <span>당신의 새해 다짐, 녹지 않고 그대로</span>
+      <img src={process.env.PUBLIC_URL + `/assets/snowman4.png`} />
       <ul>
         <li>
           <Link to="/outside">내 눈사람 보러가기</Link>

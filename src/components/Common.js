@@ -31,6 +31,8 @@ export const Input = styled.input`
   height: 30px;
   border-radius: 10px;
   border: none;
+  padding-left: 10px;
+  font-family: "Nanum Pen Script", serif;
   &::placeholder {
     color: darkgray;
     font-size: 20px;
