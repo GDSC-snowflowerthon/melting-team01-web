@@ -15,6 +15,9 @@ const Signup = () => {
     router("/login");
   };
 
+  {
+    /* 회원가입 */
+  }
   return (
     <div className="Signup">
       <h1>Sign up</h1>
