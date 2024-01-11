@@ -5,25 +5,32 @@ import { Link, useNavigate } from "react-router-dom";
 import { login } from "../apis/login";
 
 const Login = () => {
-  const [memberId, setId] = useState("");
-  const [password, setPw] = useState("");
+  const [memberId, setMemberId] = useState("");
+  const [password, setPassword] = useState("");
   const router = useNavigate();
   const onChangeId = (e) => {
-    setId(e.target.value);
+    setMemberId(e.target.value);
   };
   const onChangePw = (e) => {
-    setPw(e.target.value);
+    setPassword(e.target.value);
   };
 
   const onClick = async () => {
-    // 로그인 api
-    const result = await login(memberId, password);
-    // console.log(result); 정상적이라면 accessToken과 refreshToken이 출력되야함
-    const { accessToken, refreshToken } = result;
-    //accessToken, refreshToken은 백엔드에서 정하기 나름
-    localStorage.setItem("access", accessToken);
-    localStorage.setItem("refresh", refreshToken);
-    router("/snowflakes");
+    try {
+      // 로그인 api
+      const result = await login(memberId, password);
+      const { accessToken, refreshToken } = result;
+
+      // 로그인 성공 시 토큰을 localStorage에 저장
+      localStorage.setItem("access", accessToken);
+      localStorage.setItem("refresh", refreshToken);
+
+      // 로그인 성공 시 페이지 이동
+      router("/snowflakes");
+    } catch (error) {
+      // 에러 발생 시 로그에 출력
+      console.error("로그인 중 에러:", error);
+    }
   };
   return (
     <div className="Login">
