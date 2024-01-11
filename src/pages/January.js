@@ -2,6 +2,18 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios";
 
+//토큰 뽑아내기
+export const getMyPage = async () => {
+  const access = "Bearer" + localStorage.getItem("access");
+  console.log(access);
+  const result = await axios.get("http://43.201.121.70:8080/snowflakes", {
+    headers: {
+      Authorization: access,
+    },
+  });
+  return result.data;
+};
+
 //'체크박스' 컴포넌트
 function CheckboxSelection({ onCheckboxChange, onSubmit }) {
   const checkboxes = [
@@ -88,12 +100,12 @@ function Plan() {
     //plan + 토큰 서버로 보내기 (저장) -- response body는 아직.. 수정은 더 해야함.
     const sendPlan = async (plan) => {
       const headers = {
-        Authorization: "여기에 실제 토큰 담기",
+        Authorization: getMyPage(),
       };
 
-      let result;
+      let resultPlan;
       try {
-        result = await axios.post(
+        resultPlan = await axios.post(
           "http://43.201.121.70:8080/diary/January",
           {
             content: plan,
@@ -104,13 +116,13 @@ function Plan() {
         );
 
         //서버 응답 처리
-        console.log("Server response:", result.data.statusCode);
+        console.log("Server response:", resultPlan.data.statusCode);
       } catch (error) {
         //에러 처리
         console.error(
           "Error:",
           error,
-          result ? result.data.statusCode : undefined
+          resultPlan ? resultPlan.data.statusCode : undefined
         );
       }
     };
@@ -149,13 +161,13 @@ function Plan() {
     //체크박스 아이디값 + 토큰 서버로 보내기 -- response body 부분은 아직...
     const sendCheckboxId = async (selectedItemId) => {
       const headers = {
-        Authorization: "여기에 실제 토큰 담기",
+        Authorization: getMyPage(),
       };
 
-      let result;
+      let resultId;
 
       try {
-        result = await axios.post(
+        resultId = await axios.post(
           "http://43.201.121.70:8080/diary/January",
           {
             grade: selectedItemId,
@@ -164,12 +176,12 @@ function Plan() {
             headers: headers,
           }
         );
-        console.log("Server response:", result.data.statusCode);
+        console.log("Server response:", resultId.data.statusCode);
       } catch (error) {
         console.log(
           "Error:",
           error,
-          result ? result.data.statusCode : undefined
+          resultId ? resultId.data.statusCode : undefined
         );
       }
     };
