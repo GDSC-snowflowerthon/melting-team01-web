@@ -25,6 +25,8 @@ const Login = () => {
       localStorage.setItem("access", accessToken);
       localStorage.setItem("refresh", refreshToken);
 
+      console.log(result);
+
       // 로그인 성공 시 페이지 이동
       router("/snowflakes");
     } catch (error) {
