@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { getMyPage } from "../apis/mypage";
 
 const Mypage = () => {
-  return <div></div>;
+  useEffect(() => {
+    getMyPage().then((res) => console.log(res));
+  }, []);
+  return <div>Mypage</div>;
 };
 
 export default Mypage;
