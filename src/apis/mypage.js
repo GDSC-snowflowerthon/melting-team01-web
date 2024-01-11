@@ -8,6 +8,8 @@ export const getMyPage = async () => {
     // 토큰이 없으면 처리할 로직을 여기에 추가
     console.error("토큰이 존재하지 않습니다.");
     return null; // 또는 다른 적절한 처리를 수행하세요.
+  } else {
+    console.log(access);
   }
 
   // 토큰이 존재하는 경우에만 요청 보내기
