@@ -26,40 +26,43 @@ const Login = () => {
     router("/snowflakes");
   };
   return (
-    <Wrapper>
-      <Title>Login</Title>
-      <Form>
-        <Inputs>
-          <Input placeholder="아이디" value={memberId} onChange={onChangeId} />
-          <Input
-            placeholder="비밀번호"
-            type="password"
-            value={password}
-            onChange={onChangePw}
-          />
-        </Inputs>
-        <Button onClick={onClick}>Login</Button>
-      </Form>
+    <div className="Login">
+      <h1>Login</h1>
+      <Inputs>
+        <Input placeholder="아이디" value={memberId} onChange={onChangeId} />
+        <Input
+          placeholder="비밀번호"
+          type="password"
+          value={password}
+          onChange={onChangePw}
+        />
+      </Inputs>
+      <Button onClick={onClick}>Login</Button>
       <CustomLink to="/signup">회원가입하기</CustomLink>
-    </Wrapper>
+    </div>
   );
 };
 
 export default Login;
 
 const Button = styled.button`
-  background-color: black;
+  background-color: #9bb7ff;
   color: white;
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-radius: 10px;
+  border: none;
+  margin-top: 20px;
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 7px 20px;
+  cursor: pointer;
 `;
 
 const CustomLink = styled(Link)`
   margin-top: 20px;
-  color: black;
-  text-decoration: none;
+  color: rgb(243, 233, 255);
   &:visited {
-    color: black;
-    text-decoration: none;
+    color: rgb(243, 233, 255);
   }
 `;
