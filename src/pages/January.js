@@ -146,7 +146,7 @@ function Plan() {
   const handleSubmit = (id) => {
     setSelectedItemId(id);
 
-    //체크박스 아이디값 + 토큰 서버로 보내기 -- response body 부분은 아직..
+    //체크박스 아이디값 + 토큰 서버로 보내기 -- response body 부분은 아직...
     const sendCheckboxId = async (selectedItemId) => {
       const headers = {
         Authorization: "여기에 실제 토큰 담기",
