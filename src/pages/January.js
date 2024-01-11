@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 //'체크박스' 컴포넌트
-function CheckboxSelection() {
+function CheckboxSelection({ onCheckboxChange, onSubmit }) {
   const checkboxes = [
     { id: 1, label: "매우 잘했다" },
     { id: 2, label: "잘했다" },
@@ -12,32 +11,35 @@ function CheckboxSelection() {
     { id: 5, label: "매우 못했다" },
   ];
 
-  const minSelction = 1;
-  const maxSelction = 1;
+  const minSelection = 1;
+  const maxSelection = 1;
 
   const [selectedItem, setSelectedItem] = useState([]);
 
-  const handleCheckboxChange = (e) => {
+  const handleCheckboxChange = (e, id) => {
     const value = e.target.value;
 
     if (e.target.checked) {
-      if (selectedItem.length >= maxSelction) {
+      if (selectedItem.length >= maxSelection) {
         alert("평가 항목을 하나만 선택해주세요.");
         e.target.checked = false;
         return;
       }
-      setSelectedItem([...selectedItem, value]);
+      setSelectedItem([id]);
     } else {
-      setSelectedItem(selectedItem.filter((item) => item !== value));
+      setSelectedItem([]);
     }
+
+    onCheckboxChange(e, id);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (selectedItem.length < minSelction) {
+    if (selectedItem.length < minSelection) {
       alert("평가 항목을 하나 선택해주세요.");
     } else {
+      onSubmit(selectedItem[0]);
       console.log("Selected option:" + selectedItem);
       console.log("Number of selected option" + selectedItem.length);
     }
@@ -53,7 +55,7 @@ function CheckboxSelection() {
               <input
                 type="checkbox"
                 value={checkbox.label}
-                onChange={handleCheckboxChange}
+                onChange={(e) => handleCheckboxChange(e, checkbox.id)}
               />
               {checkbox.label}
             </label>
@@ -73,6 +75,7 @@ function CheckboxSelection() {
 function Plan() {
   const [text, setText] = useState("");
   const [plan, setPlan] = useState("");
+  const [selectedItemId, setSelectedItemId] = useState("");
 
   const onChange = (e) => {
     setText(e.target.value);
@@ -83,13 +86,26 @@ function Plan() {
     console.log(plan);
   };
 
+  const handleCheckboxChange = (e, id) => {
+    console.log(`Checkbox ${id} changed: ${e.target.checked}`);
+  };
+
+  const handleSubmit = (id) => {
+    setSelectedItemId(id);
+  };
+
   return (
     <div>
       <h2>Plan : {plan}</h2>
-      <CheckboxSelection></CheckboxSelection>
+      <CheckboxSelection
+        onCheckboxChange={handleCheckboxChange}
+        onSubmit={handleSubmit}
+      />
       <br />
       <input type="text" name="plan" onChange={onChange}></input>
       <button onClick={onClick}>저장/수정</button>
+
+      {selectedItemId && <p>선택된 체크박스의 아이디 값:{selectedItemId}</p>}
     </div>
   );
 }
@@ -98,9 +114,8 @@ const January = () => {
   return (
     <div className="January">
       <h1>January</h1>
-      {/*<article className="diaryPage"></article>*/}
       <p>
-        <Plan></Plan>
+        <Plan />
       </p>
       <Link to="/diary">
         <span>Go contents</span>
