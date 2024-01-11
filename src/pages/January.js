@@ -4,7 +4,7 @@ import axios from "axios";
 
 //토큰 뽑아내기
 export const getMyPage = async () => {
-  const access = "Bearer" + localStorage.getItem("access");
+  const access = "Bearer " + localStorage.getItem("access");
   console.log(access);
   const result = await axios.get("http://43.201.121.70:8080/snowflakes", {
     headers: {
@@ -127,7 +127,7 @@ function Plan() {
       }
     };
     sendPlan(text);
-    console.log(plan);
+    console.log(plan); //근데 굳이 이걸 넣어야 할까? 나중에 빼자.
   };
 
   /*
@@ -206,7 +206,12 @@ function Plan() {
         onSubmit={handleSubmit}
       />
       <br />
-      <input type="text" name="plan" onChange={onChange}></input>
+      <input
+        type="text"
+        name="plan"
+        onChange={onChange}
+        placeholder="your plan"
+      ></input>
       <button onClick={onClick}>Save</button>
 
       {/*이 부분은 나중에 삭제할 것*/}
