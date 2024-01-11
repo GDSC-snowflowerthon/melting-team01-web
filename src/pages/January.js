@@ -126,7 +126,7 @@ function Plan() {
         );
       }
     };
-
+    sendPlan(text);
     console.log(plan);
   };
 
@@ -185,6 +185,8 @@ function Plan() {
         );
       }
     };
+
+    sendCheckboxId(selectedItemId);
 
     /*const checkboxId = async (selectedItemId) => {
       const result = await axios
