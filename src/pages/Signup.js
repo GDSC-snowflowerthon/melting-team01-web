@@ -8,14 +8,13 @@ import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const [memberId, onChangeId] = useForm();
   const [password, onChangePw] = useForm();
+  const [name, onChangeName] = useForm();
   const router = useNavigate();
   const onClick = async () => {
-    await signup(memberId, password);
+    await signup(memberId, password, name);
     router("/login");
   };
-  {
-    /*const [name, onChangeName] = useForm();*/
-  }
+
   return (
     <div className="Signup">
       <h1>Sign up</h1>
@@ -27,7 +26,7 @@ const Signup = () => {
           value={password}
           onChange={onChangePw}
         />
-        {/*<Input placeholder="이름" value={name} onChange={onChangeName} /> */}
+        <Input placeholder="이름" value={name} onChange={onChangeName} />
       </Inputs>
       <Button onClick={onClick}>Sign Up</Button>
     </div>
