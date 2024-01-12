@@ -18,20 +18,49 @@ const Diary = () => {
       <Link to="/diary/january">January</Link>
       
       */}
-      <button onClick={() => handleButtonClick("January")}>January</button>
-      <button onClick={() => handleButtonClick("february")}>February</button>
-      <button onClick={() => handleButtonClick("march")}>March</button>
-      <button onClick={() => handleButtonClick("april")}>April</button>
-      <button onClick={() => handleButtonClick("may")}>May</button>
-      <button onClick={() => handleButtonClick("june")}>June</button>
-      <button onClick={() => handleButtonClick("july")}>July</button>
-      <button onClick={() => handleButtonClick("august")}>August</button>
-      <button onClick={() => handleButtonClick("september")}>September</button>
-      <button onClick={() => handleButtonClick("october")}>October</button>
-      <button onClick={() => handleButtonClick("november")}>November</button>
-      <button onClick={() => handleButtonClick("december")}>December</button>
+      <button className="month" onClick={() => handleButtonClick("January")}>
+        January
+      </button>
+      <button className="month" onClick={() => handleButtonClick("february")}>
+        February
+      </button>
+      <button className="month" onClick={() => handleButtonClick("march")}>
+        March
+      </button>
+      <button className="month" onClick={() => handleButtonClick("april")}>
+        April
+      </button>
+      <button className="month" onClick={() => handleButtonClick("may")}>
+        May
+      </button>
+      <button className="month" onClick={() => handleButtonClick("june")}>
+        June
+      </button>
+      <button className="month" onClick={() => handleButtonClick("july")}>
+        July
+      </button>
+      <button className="month" onClick={() => handleButtonClick("august")}>
+        August
+      </button>
+      <button className="month" onClick={() => handleButtonClick("september")}>
+        September
+      </button>
+      <button className="month" onClick={() => handleButtonClick("october")}>
+        October
+      </button>
+      <button className="month" onClick={() => handleButtonClick("november")}>
+        November
+      </button>
+      <button className="month" onClick={() => handleButtonClick("december")}>
+        December
+      </button>
 
-      <button onClick={() => router(`/snowman/${memberId}`)}>Go outside</button>
+      <button
+        className="outside"
+        onClick={() => router(`/snowman/${memberId}`)}
+      >
+        Go outside
+      </button>
     </div>
   );
 };
