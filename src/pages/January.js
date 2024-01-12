@@ -1,3 +1,5 @@
+//get,post 둘 다 에러 뜸
+
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -96,7 +98,6 @@ function Plan() {
 
     fetchData();
   }, []);
-
   const onChange = (e) => {
     setText(e.target.value);
   };
@@ -120,8 +121,7 @@ function Plan() {
 
   return (
     <div>
-      <h2>Plan : {loading ? "Loading..." : content}</h2>{" "}
-      {/*계획도 서버에서 받아온 걸 띄워야 한다..*/}
+      <h2>Plan : {loading ? "Loading..." : content.plan}</h2>{" "}
       <CheckboxSelection
         grade={grade}
         onCheckboxChange={handleCheckboxChange}
