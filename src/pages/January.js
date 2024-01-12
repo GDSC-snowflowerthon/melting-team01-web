@@ -2,7 +2,6 @@
 
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { postId } from "../apis/postId";
 import { postPlan } from "../apis/postplan";
 import { getPlan } from "../apis/getplan";
