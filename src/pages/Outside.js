@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-//테스트 필요
+//테스트 필요!!
 export const getMyPage = async () => {
   const access = localStorage.getItem("access"); // localStorage에서 accessToken 받아오기
 
