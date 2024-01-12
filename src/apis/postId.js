@@ -9,6 +9,11 @@ export const postId = async (grade) => {
       `http://43.201.121.70:8080/diary/${memberId}/January`,
       {
         grade,
+      },
+      {
+        headers: {
+          Authorization: "Bearer " + access,
+        },
       }
     );
     return result.data;
