@@ -10,14 +10,16 @@ const Mypage = () => {
 
   const [data, setData] = useState();
   useEffect(() => {
-    getMyPage().then((res) => {
-      setData(res);
+    getMyPage().then((data) => {
+      console.log(data);
+      setData(data);
     });
   }, []);
 
   const [content, onChangeContent] = useForm();
   const onClick = async () => {
     await recommend(content);
+    alert("추천해줘서 고마워 >.<");
   };
 
   const url = window.location.href;
@@ -30,11 +32,15 @@ const Mypage = () => {
   return (
     <div>
       <h1>My page</h1>
-      <div>{data?.items?.[0]?.snowflakeId}</div>
-      <div>{data?.items?.[0]?.content}</div>
+      <p>{data?.content?.items.length}개의 추천이 있습니다</p>
+
+      {data?.content?.items.map((item, index) => (
+        <p key={index}>{item.content}</p>
+      ))}
+
       <button onClick={copyUrl}>링크 공유하기</button>
       <textarea
-        placeholder="추천해주기"
+        placeholder="나를 위해 추천해줘!"
         value={content}
         onChange={onChangeContent}
       />
