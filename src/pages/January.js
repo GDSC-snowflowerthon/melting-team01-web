@@ -120,8 +120,7 @@ function Plan() {
 
   return (
     <div>
-      <h2>Plan : {loading ? "Loading..." : content}</h2>{" "}
-      {/*계획도 서버에서 받아온 걸 띄워야 한다..*/}
+      <h2>Plan : {loading ? "Loading..." : content.plan}</h2>{" "}
       <CheckboxSelection
         grade={grade}
         onCheckboxChange={handleCheckboxChange}
