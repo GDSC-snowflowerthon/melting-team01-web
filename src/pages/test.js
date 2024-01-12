@@ -1,11 +1,9 @@
-//get,post 둘 다 에러 뜸
-
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { postId } from "../apis/postIdJuly";
-import { postPlan } from "../apis/postplanJuly";
-import { getPlan } from "../apis/getplanJuly";
+import { postId } from "../apis/postId";
+import { postPlan } from "../apis/postplan";
+import { getPlan } from "../apis/getplan";
 
 //'체크박스' 컴포넌트
 function CheckboxSelection({ grade, onCheckboxChange, onSubmit }) {
@@ -83,32 +81,9 @@ function CheckboxSelection({ grade, onCheckboxChange, onSubmit }) {
 //'계획 저장/수정' 컴포넌트
 function Plan() {
   const [text, setText] = useState("");
-  const [content, setContent] = useState("");
-  const [grade, setGrade] = useState("");
-  const [plani, setPlani] = useState("");
-
-  // 서버로 보낸 계획을 다시 가져오는 함수
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const plan = await getPlan();
-      setContent(plan);
-      setLoading(false);
-    };
-
-    fetchData();
-  }, []);
 
   const onChange = (e) => {
     setText(e.target.value);
-  };
-
-  //계획 서버로 보내는 함수
-  const onClickPlan = async () => {
-    setPlani(text);
-    setContent(text);
-    await postPlan(content);
   };
 
   const handleCheckboxChange = (e, id) => {
@@ -135,13 +110,16 @@ function Plan() {
         placeholder="your plan"
       ></input>
       <button onClick={onClickPlan}>Save</button>
+      {/*이 부분은 나중에 삭제할 것*/}
+      {grade && <p>선택된 체크박스의 아이디 값:{grade}</p>}
+    </div>
   );
 }
 
-const July = () => {
+const January = () => {
   return (
-    <div className="July">
-      <h1>July</h1>
+    <div className="January">
+      <h1>January</h1>
       <p>
         <Plan />
       </p>
@@ -152,4 +130,4 @@ const July = () => {
   );
 };
 
-export default July;
+export default January;
