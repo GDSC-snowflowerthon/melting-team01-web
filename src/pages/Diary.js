@@ -1,24 +1,37 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Diary = () => {
+  const router = useNavigate();
+  const memberId = localStorage.getItem("memberId"); // localStorage에서 memberId 받아오기
+
+  const handleButtonClick = (month) => {
+    // 버튼을 눌렀을 때 라우터 변경
+    router(`/diary/${memberId}/${month}`);
+  };
+
   return (
     <div className="Diary">
       <h1>Diary</h1>
-      {/*diary*/}
+      {/*
+      diary
+      
       <Link to="/diary/january">January</Link>
-      <Link to="/diary/february">February</Link>
-      <Link to="/diary/march">March</Link>
-      <Link to="/diary/april">April</Link>
-      <Link to="/diary/may">May</Link>
-      <Link to="/diary/june">June</Link>
-      <Link to="/diary/july">July</Link>
-      <Link to="/diary/august">August</Link>
-      <Link to="/diary/september">September</Link>
-      <Link to="/diary/october">October</Link>
-      <Link to="/diary/november">November</Link>
-      <Link to="/diary/december">December</Link>
+      
+      */}
+      <button onClick={() => handleButtonClick("January")}>January</button>
+      <button onClick={() => handleButtonClick("february")}>February</button>
+      <button onClick={() => handleButtonClick("march")}>March</button>
+      <button onClick={() => handleButtonClick("april")}>April</button>
+      <button onClick={() => handleButtonClick("may")}>May</button>
+      <button onClick={() => handleButtonClick("june")}>June</button>
+      <button onClick={() => handleButtonClick("july")}>July</button>
+      <button onClick={() => handleButtonClick("august")}>August</button>
+      <button onClick={() => handleButtonClick("september")}>September</button>
+      <button onClick={() => handleButtonClick("october")}>October</button>
+      <button onClick={() => handleButtonClick("november")}>November</button>
+      <button onClick={() => handleButtonClick("december")}>December</button>
 
-      <Link to="/outside">Go outside </Link>
+      <button onClick={() => router(`/snowman/${memberId}`)}>Go outside</button>
     </div>
   );
 };
