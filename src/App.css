@@ -59,7 +59,8 @@ body {
 /* background */
 .Start,
 .Login,
-.Signup {
+.Signup,
+.Mypage {
   min-height: 100vh;
   padding-left: 20px;
   padding-right: 20px;
@@ -72,7 +73,8 @@ body {
 @media (min-width: 650px) {
   .Start,
   .Login,
-  .Signup {
+  .Signup,
+  .Mypage {
     width: 640px;
   }
 }
@@ -80,7 +82,8 @@ body {
 @media (max-width: 650px) {
   .Start,
   .Login,
-  .Signup {
+  .Signup,
+  .Mypage {
     width: 90vw;
   }
 }
@@ -120,7 +123,7 @@ body {
 }
 
 .Start #mypageBtn {
-  background-color: #eeacff;
+  background-color: #9bb7ff;
 }
 
 .Start a {
@@ -341,4 +344,55 @@ body {
 /* Signup */
 .Signup {
   box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+}
+
+/* Mypage */
+.Mypage {
+  box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+}
+
+.Mypage .recommenList {
+  text-align: center;
+  font-size: 30px;
+  margin-right: 20px;
+}
+
+.Mypage .buttonList {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.Mypage button {
+  background-color: #9bb7ff;
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 40px;
+  border-radius: 10px;
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 7px 20px;
+  color: white;
+  font-family: "Baskervville", "Nanum Pen Script", serif; /*only "melting"*/
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.Mypage textarea {
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  height: 100px;
+  margin-bottom: 30px;
+  font-family: "Baskervville", "Nanum Pen Script", serif; /*only "melting"*/
+  font-size: 18px;
+}
+
+.Mypage p {
+  font-size: 25px;
+  margin: 5px;
+}
+
+.Mypage .area {
+  display: flex;
+  margin-top: 20px;
 }
