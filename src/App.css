@@ -301,6 +301,30 @@ body {
   font-size: 20px;
 }
 
+.Diary .month {
+  border: none;
+  background: none;
+  color: white;
+  font-family: "Baskervville", "Nanum Pen Script", serif; /*only "melting"*/
+  text-shadow: 0px 0px 10px white;
+  font-size: 20px;
+  padding: 5px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.Diary .outside {
+  border: none;
+  background: none;
+  color: white;
+  font-family: "Baskervville", "Nanum Pen Script", serif; /*only "melting"*/
+  text-shadow: 0px 0px 10px white;
+  font-size: 30px;
+  padding: 5px;
+  margin: 2px;
+  cursor: pointer;
+}
+
 .January .diaryPage,
 .February .diaryPage,
 .March .diaryPage,

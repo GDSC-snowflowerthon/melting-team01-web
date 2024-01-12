@@ -1,26 +1,28 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+
 import { getImage } from "../apis/getImage";
 
 const Outside = () => {
-  const [imageData, setImageData] = useState(null);
-  let snowmanImage = null;
+  const memberId = localStorage.getItem("memberId"); // localStorage에서 memberId 받아오기
 
+  const [data, setData] = useState();
   useEffect(() => {
-    const fetchImage = async () => {
-      try {
-        const imageData = await getImage(); //이게 이미지에 해당하는 숫자..?
-        setImageData(imageData);
-      } catch (error) {
-        console.error("Error fetching image:", error);
-        // 에러 처리 로직 추가: 사용자에게 메시지 표시 또는 다른 조치
-      }
-    };
-
-    fetchImage();
+    getImage().then((data) => {
+      console.log(data);
+      setData(data);
+    });
   }, []);
 
+  /*
+  const getImage = async () => {
+    const data = data?.contnet?.items;
+    console.log(data);
+    await getImage(data);
+  };
+  */
+
+  /*
   switch (imageData) {
     case 1:
       snowmanImage = `/assets/snowman1.png`;
@@ -57,14 +59,17 @@ const Outside = () => {
       break;
   }
 
+  */
   return (
     <div className="Outside">
       <h1>Outside</h1>
+      {/*
       <img
         className="snowman"
         src={process.env.PUBLIC_URL + snowmanImage}
         alt="Snowman" //이미지를 불러오지 못했을 때 화면에 표시되는 텍스트
       />{" "}
+  */}
       <ul>
         <li>
           <Link to="/">
