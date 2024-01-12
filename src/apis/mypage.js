@@ -16,7 +16,7 @@ export const getMyPage = async () => {
   try {
     const result = await axios.get("http://43.201.121.70:8080/snowflakes", {
       headers: {
-        Authorization: access,
+        Authorization: `Bearer ${access}`,
       },
     });
     return result.data;
