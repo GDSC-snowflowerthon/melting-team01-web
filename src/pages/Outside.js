@@ -1,23 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-//테스트 필요!!
-export const getImage = async () => {
-  const access = localStorage.getItem("access"); // localStorage에서 accessToken 받아오기
-
-  try {
-    const result = await axios.get("여기에 이미지 가져올 url 넣기", {
-      headers: {
-        Authorization: `Bearer ${access}`,
-      },
-    });
-    return result.data;
-  } catch (error) {
-    console.log("Error:", error);
-    /*throw error; // 에러를 다시 던져서 상위 컴포넌트에서 처리할 수 있도록 함*/
-  }
-};
+import { getImage } from "../apis/getImage";
 
 const Outside = () => {
   const [imageData, setImageData] = useState(null);
