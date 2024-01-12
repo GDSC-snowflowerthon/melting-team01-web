@@ -12,7 +12,7 @@ export const getImage = async () => {
     console.log(access);
   }
 
-  // 토큰이 존재하는 경우에만 요청 보내기
+  //토큰이 존재하는 경우에만 요청 보내기
   const result = await axios.get(
     `http://43.201.121.70:8080/snowman/${memberId}`,
     {
