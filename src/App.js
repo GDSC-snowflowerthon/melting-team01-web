@@ -11,6 +11,7 @@ import Signup from "./pages/Signup";
 import Mypage from "./pages/Mypage";
 
 /* Months */
+// 내 파일 불러오기
 import January from "./pages/January";
 import February from "./pages/February";
 import March from "./pages/March";
@@ -25,31 +26,37 @@ import November from "./pages/November";
 import December from "./pages/December";
 
 function App() {
+  const memberId = localStorage.getItem("memberId"); // localStorage에서 memberId 받아오기
   return (
     <BrowserRouter>
       <div className="App">
         <FallingSnow />
         <Routes>
           <Route path="/" element={<Start />} />
-          <Route path="/outside" element={<Outside />} />
+          <Route path={`/snowman/${memberId}`} element={<Outside />} />
           <Route path="/diary" element={<Diary />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/snowflakes" element={<Mypage />} />
+
+          <Route path={`/snowflakes/${memberId}`} element={<Mypage />} />
 
           {/* Months */}
-          <Route path="/diary/january" element={<January />} />
-          <Route path="/diary/february" element={<February />} />
-          <Route path="/diary/march" element={<March />} />
-          <Route path="/diary/april" element={<April />} />
-          <Route path="/diary/may" element={<May />} />
-          <Route path="/diary/june" element={<June />} />
-          <Route path="/diary/july" element={<July />} />
-          <Route path="/diary/august" element={<August />} />
-          <Route path="/diary/september" element={<September />} />
-          <Route path="/diary/october" element={<October />} />
-          <Route path="/diary/november" element={<November />} />
-          <Route path="/diary/december" element={<December />} />
+          <Route path={`/diary/${memberId}/january`} element={<January />} />
+
+          <Route path={`/diary/${memberId}/february`} element={<February />} />
+          <Route path={`/diary/${memberId}/march`} element={<March />} />
+          <Route path={`/diary/${memberId}/april`} element={<April />} />
+          <Route path={`/diary/${memberId}/may`} element={<May />} />
+          <Route path={`/diary/${memberId}/june`} element={<June />} />
+          <Route path={`/diary/${memberId}/july`} element={<July />} />
+          <Route path={`/diary/${memberId}/august`} element={<August />} />
+          <Route
+            path={`/diary/${memberId}/september`}
+            element={<September />}
+          />
+          <Route path={`/diary/${memberId}/october`} element={<October />} />
+          <Route path={`/diary/${memberId}/november`} element={<November />} />
+          <Route path={`/diary/${memberId}/december`} element={<December />} />
         </Routes>
       </div>
     </BrowserRouter>
