@@ -2,7 +2,6 @@
 
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { postId } from "../apis/postId";
 import { postPlan } from "../apis/postplan";
 import { getPlan } from "../apis/getplan";
@@ -85,7 +84,6 @@ function Plan() {
   const [text, setText] = useState("");
   const [content, setContent] = useState("");
   const [grade, setGrade] = useState("");
-  const [plani, setPlani] = useState("");
 
   // 서버로 보낸 계획을 다시 가져오는 함수
   const [loading, setLoading] = useState(true);
@@ -99,17 +97,18 @@ function Plan() {
 
     fetchData();
   }, []);
-
   const onChange = (e) => {
     setText(e.target.value);
   };
 
   //계획 서버로 보내는 함수
   const onClickPlan = async () => {
-    setPlani(text);
     setContent(text);
     await postPlan(content);
   };
+
+  //서버로 보낸 계획을 다시 가져오는 함수
+  const userPlan = getPlan();
 
   const handleCheckboxChange = (e, id) => {
     console.log(`Checkbox ${id} changed: ${e.target.checked}`);
@@ -121,7 +120,7 @@ function Plan() {
 
   return (
     <div>
-      <h2>Plan : {plani}</h2>{" "}
+      <h2>Plan : {loading ? "Loading..." : content.plan}</h2>{" "}
       <CheckboxSelection
         grade={grade}
         onCheckboxChange={handleCheckboxChange}
@@ -135,6 +134,8 @@ function Plan() {
         placeholder="your plan"
       ></input>
       <button onClick={onClickPlan}>Save</button>
+      {/*이 부분은 나중에 삭제할 것*/}
+      {grade && <p>선택된 체크박스의 아이디 값:{grade}</p>}
     </div>
   );
 }
