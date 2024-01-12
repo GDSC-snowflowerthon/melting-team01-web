@@ -19,7 +19,7 @@ export const getMyPage = async () => {
       `http://43.201.121.70:8080/snowflakes/${memberId}`,
       {
         headers: {
-          Authorization: `Bearer ${access}`,
+          Authorization: access,
         },
       }
     );
