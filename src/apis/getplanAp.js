@@ -5,7 +5,7 @@ export const getPlan = async () => {
   const memberId = localStorage.getItem("memberId"); // localStorage에서 memberId 받아오기
   // 토큰이 존재하는지 확인
   if (!access) {
-    // 토큰이 없으면 처리할 로직을 여기에 추가
+    //토큰이 없으면 처리할 로직을 여기에 추가
     console.error("토큰이 존재하지 않습니다.");
     return null; // 또는 다른 적절한 처리를 수행하세요.
   }
