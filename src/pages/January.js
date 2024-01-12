@@ -2,6 +2,7 @@
 
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { postId } from "../apis/postId";
 import { postPlan } from "../apis/postplan";
 import { getPlan } from "../apis/getplan";
@@ -134,8 +135,6 @@ function Plan() {
         placeholder="your plan"
       ></input>
       <button onClick={onClickPlan}>Save</button>
-      {/*이 부분은 나중에 삭제할 것*/}
-      {grade && <p>선택된 체크박스의 아이디 값:{grade}</p>}
     </div>
   );
 }
