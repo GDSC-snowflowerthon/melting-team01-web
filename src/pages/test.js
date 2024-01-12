@@ -1,5 +1,3 @@
-//get,post 둘 다 에러 뜸
-
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -83,32 +81,9 @@ function CheckboxSelection({ grade, onCheckboxChange, onSubmit }) {
 //'계획 저장/수정' 컴포넌트
 function Plan() {
   const [text, setText] = useState("");
-  const [content, setContent] = useState("");
-  const [grade, setGrade] = useState("");
-  const [plani, setPlani] = useState("");
-
-  // 서버로 보낸 계획을 다시 가져오는 함수
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const plan = await getPlan();
-      setContent(plan);
-      setLoading(false);
-    };
-
-    fetchData();
-  }, []);
 
   const onChange = (e) => {
     setText(e.target.value);
-  };
-
-  //계획 서버로 보내는 함수
-  const onClickPlan = async () => {
-    setPlani(text);
-    setContent(text);
-    await postPlan(content);
   };
 
   const handleCheckboxChange = (e, id) => {
