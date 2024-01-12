@@ -25,10 +25,11 @@ const Login = () => {
       localStorage.setItem("access", accessToken);
       localStorage.setItem("refresh", refreshToken);
 
-      console.log(result);
+      // 로그인 성공 시 memberId를 localStorage에 저장
+      localStorage.setItem("memberId", memberId);
 
       // 로그인 성공 시 페이지 이동
-      router("/snowflakes");
+      router(`/snowflakes/${memberId}`);
     } catch (error) {
       // 에러 발생 시 로그에 출력
       console.error("로그인 중 에러:", error);
